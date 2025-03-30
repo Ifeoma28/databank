@@ -216,8 +216,8 @@ FROM final_balance_percent;
 ### Data allocation challenge
 To test out a few different hypotheses - the Data Bank team wants to run an experiment where different groups of customers would be allocated data using 2 different options:
 
-Option 1: data is allocated based off the amount of money at the end of the previous month
-Option 2: data is allocated on the average amount of money kept in the account in the previous 30 days
+- Option 1: data is allocated based off the amount of money at the end of the previous month
+- Option 2: data is allocated on the average amount of money kept in the account in the previous 30 days
 
 - Option 1
 ```
@@ -248,9 +248,9 @@ GROUP BY month,customer_id
 )
 SELECT  *,LEAD(monthly_balance) OVER(PARTITION BY customer_id ORDER BY month DESC) AS previous_monthly_balance
 FROM monthly;
--- with this method some more customers would be allocated compared to the previous method.
+-- with this method more customers would be allocated.
 -- customers that had little money from the previous month would be allocated data even 
--- though they might purchase more than they have at the end of the month
+-- though their balance might be in red at the end of the month
 ```
 - Option 2
 ```
