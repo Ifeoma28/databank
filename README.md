@@ -1,7 +1,7 @@
 
-# databank
+# DATABANK
 
-## Project overview
+## PROJECT OVERVIEW
 There is a new innovation in the financial industry called Neo-Banks: new aged digital only banks without physical branches like Kudabank.
 
 Danny thought that there should be some sort of intersection between these new age banks, cryptocurrency and the data world…so he decides to launch a new initiative - Data Bank!
@@ -11,10 +11,10 @@ Data Bank runs just like any other digital bank - but it isn’t only for bankin
 Customers are allocated cloud data storage limits which are directly linked to how much money they have in their accounts. There are a few interesting caveats that go with this business model, and this is where I come in!
 
 
-## Problem statement
+## PROBLEM STATEMENT
 The management team at Data Bank want to increase their total customer base - but also need some help tracking just how much data storage their customers will need.
 
-### About dataset
+### ABOUT DATASET
 We have three tables; customer nodes, customer transactions and regions table.
 Just like popular cryptocurrency platforms - Data Bank is also run off a network of nodes where both money and data is stored across the globe. In a traditional banking sense - you can think of these nodes as bank branches or stores that exist around the world. The customer nodes table contain the customer ID, region ID,nodes ID,start_date and end_date.
 
@@ -22,11 +22,11 @@ Customers are randomly distributed across the nodes according to their region - 
 
 The regions table contains the region_id and their respective region_name values. The customer transactions  table stores all customer deposits, withdrawals and purchases made using their Data Bank debit card.
 
-### Tools used
+### TOOLS USED
 - SQL sever for data exploration
 - Power BI for data visualization
 
-### Business Questioons
+### BUSINESS QUESTIONS
 This is divided into three sections;
 - Customer node exploration
 - Customer transactions
@@ -213,7 +213,82 @@ SELECT (COUNT(DISTINCT CASE WHEN percentage_change > 5 THEN customer_id END)*100
 FROM final_balance_percent;
 -- 55 percent of customers increased by 5% in their transactions
 ```
+### Data allocation challenge
+To test out a few different hypotheses - the Data Bank team wants to run an experiment where different groups of customers would be allocated data using 2 different options:
 
+Option 1: data is allocated based off the amount of money at the end of the previous month
+Option 2: data is allocated on the average amount of money kept in the account in the previous 30 days
+
+- Option 1
+```
+WITH monthlytransactions AS (
+SELECT  customer_id,txn_date,
+FORMAT(txn_date,'yyyy-MM') AS month,
+SUM(CASE WHEN txn_type = 'deposit' THEN txn_amount
+	WHEN txn_type IN ('withdrawal','purchase') THEN -(txn_amount)
+	ELSE 0 
+	END) AS daily_transactions
+	-- to calculate the total monthly balance at the end of each transaction day
+FROM customer_transactions
+GROUP BY customer_id,FORMAT(txn_date,'yyyy-MM'),txn_date
+),
+running_balance AS (SELECT mt.customer_id,mt.txn_date,mt.month,mt.daily_transactions,SUM(mt.daily_transactions)
+OVER(PARTITION BY mt.customer_id ORDER BY mt.txn_date ) AS running_closing_balance
+FROM monthlytransactions mt
+GROUP BY mt.customer_id,mt.daily_transactions,mt.txn_date,mt.month
+-- to calculate the closing balance after all deductions has been made
+),
+final_balance AS (SELECT r.customer_id,r.txn_date,r.month,r.daily_transactions,r.running_closing_balance
+FROM running_balance r
+),
+monthly AS (
+SELECT customer_id,month,SUM(running_closing_balance) AS monthly_balance
+FROM final_balance
+GROUP BY month,customer_id
+)
+SELECT  *,LEAD(monthly_balance) OVER(PARTITION BY customer_id ORDER BY month DESC) AS previous_monthly_balance
+FROM monthly;
+-- with this method some more customers would be allocated compared to the previous method.
+-- customers that had little money from the previous month would be allocated data even 
+-- though they might purchase more than they have at the end of the month
+```
+- Option 2
+```
+-- we are trying to understand how data is being allocated, firstly lets see the average amount
+--  of money kept in the account in the previous 30 days
+-- or if its allocated based off the amount of money at the previous month
+WITH monthlytransactions AS (
+SELECT  customer_id,txn_date,
+FORMAT(txn_date,'yyyy-MM') AS month,
+SUM(CASE WHEN txn_type = 'deposit' THEN txn_amount
+	WHEN txn_type IN ('withdrawal','purchase') THEN -(txn_amount)
+	ELSE 0 
+	END) AS daily_transactions
+	-- to calculate the total monthly balance at the end of each transaction day
+FROM customer_transactions
+GROUP BY customer_id,FORMAT(txn_date,'yyyy-MM'),txn_date
+),
+running_balance AS (SELECT mt.customer_id,mt.txn_date,mt.month,mt.daily_transactions,SUM(mt.daily_transactions)
+OVER(PARTITION BY mt.customer_id ORDER BY mt.txn_date ) AS running_closing_balance
+FROM monthlytransactions mt
+GROUP BY mt.customer_id,mt.daily_transactions,mt.txn_date,mt.month
+-- to calculate the closing balance after all deductions has been made
+),
+final_balance AS (SELECT r.customer_id,r.txn_date,r.month,r.daily_transactions,r.running_closing_balance
+FROM running_balance r
+),
+monthly AS (
+SELECT customer_id,month,SUM(running_closing_balance) AS monthly_balance
+FROM final_balance
+GROUP BY month,customer_id
+)
+SELECT  *,AVG(monthly_balance) OVER(PARTITION BY customer_id) AS avg_monthly_balance
+FROM monthly;
+-- so this is the average amount of money kept in the account in the previous 30 days
+-- we can see some customers wont be allocated cloud storage because they are in debt (-)
+
+```
+## ANALYSIS
 
 
 
