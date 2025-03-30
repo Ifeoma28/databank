@@ -177,41 +177,41 @@ WHERE rn = 1
 - What is the percentage of customers who increase their closing balance by more than 5%?
 ```
 WITH monthlytransactions AS (
-SELECT  customer_id,txn_date,
-FORMAT(txn_date,'yyyy-MM') AS month,
+SELECT  customer_id,
+EOMONTH(txn_date) AS end_of_month,
 SUM(CASE WHEN txn_type = 'deposit' THEN txn_amount
 	WHEN txn_type IN ('withdrawal','purchase') THEN -(txn_amount)
 	ELSE 0 
-	END) AS Monthly_net_change
-	-- to calculate the monthly balance at the end of each transaction day
+	END) AS daily_transactions
+	-- to calculate the total monthly balance at the end of each transaction day
 FROM customer_transactions
-GROUP BY customer_id,FORMAT(txn_date,'yyyy-MM'),txn_date
+GROUP BY customer_id,EOMONTH(txn_date)
 ),
-running_balance AS (SELECT mt.customer_id,mt.txn_date,mt.month,mt.Monthly_net_change,SUM(mt.Monthly_net_change)
-OVER(PARTITION BY mt.customer_id ORDER BY mt.txn_date ) AS closing_balance
+running_balance AS (SELECT mt.customer_id,mt.end_of_month,mt.daily_transactions,SUM(mt.daily_transactions)
+OVER(PARTITION BY mt.customer_id ORDER BY end_of_month ) AS closing_balance
 FROM monthlytransactions mt
-GROUP BY mt.customer_id,mt.month,mt.Monthly_net_change,mt.txn_date
--- to calculate the closing balance at the end of each month for each customer
+GROUP BY mt.customer_id,mt.daily_transactions,mt.end_of_month
 ),
-final_balance AS (SELECT r.customer_id,r.txn_date,r.month,r.Monthly_net_change,r.closing_balance,SUM(r.closing_balance)
-OVER (PARTITION BY r.customer_id,r.month) AS end_balance 
-FROM running_balance r
--- the final balance for each customer after their purchases and withdrawals
-),
-final_balance_percent AS (
-SELECT customer_id,month,end_balance,LEAD(end_balance) OVER (PARTITION BY customer_id ORDER BY month) AS next_end_balance,
-CASE WHEN  LEAD(end_balance) OVER (PARTITION BY customer_id ORDER BY month)  IS NOT NULL THEN
-(end_balance - LEAD(end_balance) OVER (PARTITION BY customer_id ORDER BY month))*100/
-LEAD(end_balance) OVER (PARTITION BY customer_id ORDER BY month) 
-ELSE 0
-END AS percentage_change
-FROM final_balance
-GROUP BY customer_id,month,end_balance)
+prev_closing AS (
+SELECT customer_id,end_of_month,closing_balance,LAG(closing_balance) OVER 
+(PARTITION BY customer_id ORDER BY end_of_month DESC ) AS prev_closing_balance
+FROM running_balance
+GROUP BY customer_id,end_of_month,closing_balance
+)
 -- we want to see the percent difference in the end balance monthly
 -- this will help us to calculate how many customers increased their balance by more than 5%
-SELECT (COUNT(DISTINCT CASE WHEN percentage_change > 5 THEN customer_id END)*100)/COUNT(DISTINCT customer_id) AS percentage_of_customers
-FROM final_balance_percent;
--- 55 percent of customers increased by 5% in their transactions
+SELECT CASE 
+	WHEN COUNT(DISTINCT customer_id) = 0 THEN 0
+	-- prevents divide by zero
+	ELSE
+		(COUNT(DISTINCT CASE WHEN prev_closing_balance IS NOT NULL
+		AND prev_closing_balance > 0
+		AND (closing_balance - prev_closing_balance)/prev_closing_balance > 0.05 
+		THEN customer_id 
+		END)*100)/ COUNT(DISTINCT customer_id) 
+	END AS percentage_of_customers
+FROM prev_closing;
+-- 12 percent of customers increased their closing balance by 5% in their transactions
 ```
 ### Data allocation challenge
 To test out a few different hypotheses - the Data Bank team wants to run an experiment where different groups of customers would be allocated data using 2 different options:
