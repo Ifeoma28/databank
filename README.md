@@ -211,7 +211,7 @@ SELECT CASE
 		END)*100)/ COUNT(DISTINCT customer_id) 
 	END AS percentage_of_customers
 FROM prev_closing;
--- 12 percent of customers increased their closing balance by 5% in their transactions
+-- 12 percent of customers increased their closing balance by more than 5% in their transactions
 ```
 ### Data allocation challenge
 To test out a few different hypotheses - the Data Bank team wants to run an experiment where different groups of customers would be allocated data using 2 different options:
