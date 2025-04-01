@@ -331,4 +331,9 @@ I created another metric to calculate active customers (customers that have made
 - By the end of February, a lot of customers balances were in red.
 - We have more active customers in Australia and America 
 - Africa has the lowest average closing balance for all its customers.
+- 361 customers have made more than 7 transactions (highly active customers).
+- The average number of days it takes for a customer to reallocate to another node is 23 days.
+- 460 customers had a declining balance for the past 3 months.
+- 3500 nodes were distributed across 5 regions.
+- Most customers did the highest spending in April.
 
