@@ -318,7 +318,8 @@ Let us look at the deposit rate, withdrawal and purchase rate in these regions
   Customers in Australia spend more than they earn and that's why they have the highest number of financially struggling customers despite the high deposit rate.
   
   ![declining balance](https://github.com/Ifeoma28/databank/blob/a8e307adf766a348a4523cf98f715eefaf1e0fc3/declining%20balances.png)
-To identify financially struggling customers using the declining balance trend, I created a DAX measure that checks if a customer's closing balance has decreased for 3 or more consecutive months.  
+To identify financially struggling customers, i used the declining balance trend.
+I created a DAX measure that checks if a customer's closing balance has decreased for 3 or more consecutive months.  
 
 I created another metric to calculate active customers (customers that have made more than 5 transactions)
 ![highly active customers](https://github.com/Ifeoma28/databank/blob/16d4533df96cf00101ecb6b4407ca505eb096850/Active%20customers%20by%20region.png)
