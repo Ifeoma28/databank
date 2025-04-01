@@ -306,5 +306,5 @@ Asia is slightly negative, but not as severe.
 This suggests higher debt levels or low savings behavior in these regions.
 
 Let us look at the deposit rate, withdrawal and purchase rate in these regions 
-
+![withdraw and purchase](https://github.com/Ifeoma28/databank/blob/7ebdb330b92c2aa3365709c3dedd7d35a36e002a/purchase%20and%20withdrawal.png)
   
