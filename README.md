@@ -342,6 +342,7 @@ The median time to reallocate in Australia is 206 days while in Europe is 166 da
 361 customers made more than 7 transactions → highly active users.
 
 - Australia & America having more active customers → Could indicate stronger engagement with digital banking.
-![Active customers]()
+
+![Active customers](https://github.com/Ifeoma28/databank/blob/da8a114af848a6396956f36edc019742eeb1c581/Active%20customers.png)
 
 - 460 customers have had a declining balance for the past three months.
