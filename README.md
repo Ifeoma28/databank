@@ -292,8 +292,19 @@ FROM monthly;
 
 ```
 ## ANALYSIS
+Let's look at the average closing balance by Region.
+![average closing balance](https://github.com/Ifeoma28/databank/blob/f7377134bc15b0c2417242df6e50cdb26fc5c6b1/Average%20closing%20balance.png)
 
+Customers in America are the most financially stable with the highest average balance.
 
+Europe has a lower but still positive balance, indicating some financial stability but not as strong as America.
 
+Australia & Africa have the most financially struggling customers (deep negative balances).
+
+Asia is slightly negative, but not as severe.
+
+This suggests higher debt levels or low savings behavior in these regions.
+
+Let us look at the deposit rate, withdrawal and purchase rate in these regions 
 
   
