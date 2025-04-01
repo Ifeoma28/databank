@@ -329,7 +329,7 @@ I created another metric to calculate active customers (customers that have made
 ### KEY INSIGHTS
 
 - Customer Movement & Node Reallocation:
-The median time to reallocate in Australia (206 days) vs. Europe (166 days) is valuable.
+The median time to reallocate in Australia is 206 days while in Europe is 166 days.
 
 - The fact that Europeans change nodes more frequently could suggest more flexible digital banking habits and is another reason for having the lowest number of Active customers.
 
@@ -342,6 +342,6 @@ The median time to reallocate in Australia (206 days) vs. Europe (166 days) is v
 361 customers made more than 7 transactions → highly active users.
 
 - Australia & America having more active customers → Could indicate stronger engagement with digital banking.
-![Active customers](
+![Active customers](https://github.com/Ifeoma28/databank/blob/2594cf5c74216f14b2ada71a7b4735d039d83057/Active%20customers.png)
 
 - 460 customers have had a declining balance for the past three months.
