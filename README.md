@@ -1,6 +1,6 @@
 
-# DATABANK
-![Neo dashboard](https://github.com/Ifeoma28/databank/blob/7d79c78234a33af0f306c7db6ca3b1ddbb45ee23/NEO%20BANK.png)
+# DATA BANK
+![dashboard](https://github.com/Ifeoma28/databank/blob/4dbcf1cc4939386ca0351e738e7439a5d60b0db5/Neo%20dashboard.png)
 
 
 ## PROJECT OVERVIEW
