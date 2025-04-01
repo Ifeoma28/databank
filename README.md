@@ -308,8 +308,10 @@ Europe has a lower but still positive balance, indicating some financial stabili
 
 Australia & Africa have the most financially struggling customers (deep negative balances).
 
-Asia is slightly negative, but not as severe.
+Asia is slightly negative, but not as severe. Also they may just be few customers who deposit more. Let us look at the median.
+
 ![median closing balance](https://github.com/Ifeoma28/databank/blob/a1d2596c7fe5f8920436399d3e21d6b7c41a4cc8/median%20closing%20balance.png)
+This means that at least 50% of customers in every region are in debt or have overdrafted their accounts.
 
 This suggests higher debt levels or low savings behavior in these regions.
 
