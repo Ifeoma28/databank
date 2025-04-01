@@ -307,4 +307,6 @@ This suggests higher debt levels or low savings behavior in these regions.
 
 Let us look at the deposit rate, withdrawal and purchase rate in these regions 
 ![withdraw and purchase](https://github.com/Ifeoma28/databank/blob/7ebdb330b92c2aa3365709c3dedd7d35a36e002a/purchase%20and%20withdrawal.png)
-  
+
+  ![deposit rate](https://github.com/Ifeoma28/databank/blob/fe0eb84de516239f05efcb94ad87aa37b1eb75cf/deposit%20rate.png)
+  Customers in Australia spend more than they earn and that's why they have the highest number of financially struggling customers despite the high deposit rate.
