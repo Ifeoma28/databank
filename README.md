@@ -311,3 +311,5 @@ Let us look at the deposit rate, withdrawal and purchase rate in these regions
   ![deposit rate](https://github.com/Ifeoma28/databank/blob/fe0eb84de516239f05efcb94ad87aa37b1eb75cf/deposit%20rate.png)
   Customers in Australia spend more than they earn and that's why they have the highest number of financially struggling customers despite the high deposit rate.
   ![declining balance](https://github.com/Ifeoma28/databank/blob/eaac1499c6ffb29814f2d4bf4d40d35471235354/declining%20balance.png)
+
+I designed a metric to calculate active customers (customers that have made more than 5 transactions)![highly active customers](.https://github.com/Ifeoma28/databank/blob/16d4533df96cf00101ecb6b4407ca505eb096850/Active%20customers%20by%20region.png)
