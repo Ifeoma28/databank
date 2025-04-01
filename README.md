@@ -320,6 +320,8 @@ Let us look at the deposit rate, withdrawal and purchase rate in these regions
 
   ![deposit rate](https://github.com/Ifeoma28/databank/blob/fe0eb84de516239f05efcb94ad87aa37b1eb75cf/deposit%20rate.png)
   Customers in Australia spend more than they earn and that's why they have the highest number of financially struggling customers despite the high deposit rate.
+  ![Africa vs Australia](https://github.com/Ifeoma28/databank/blob/304b5ab4bc301f636de7f6cb8d8db9c300b392a5/deductions.png)
+
   
   ![declining balance](https://github.com/Ifeoma28/databank/blob/a8e307adf766a348a4523cf98f715eefaf1e0fc3/declining%20balances.png)
 To identify financially struggling customers, i used the declining balance trend.
@@ -338,7 +340,7 @@ The median time to reallocate in Australia is 206 days while in Europe is 166 da
 - Monthly Trends: A lot of customers had negative balances by the end of February till April.
 ![monthly closing balance](https://github.com/Ifeoma28/databank/blob/5c7f885701e01e42aef72b72353f9ba8ad2a1b87/closing%20balance%20monthly.png)
 
-- Africa having the lowest average closing balance aligns with financial struggles observed earlier.
+- Africa having the lowest average closing balance followed by Australia aligns with financial struggles observed earlier.
   
 - Activity & Transaction Behavior:
 361 customers made more than 7 transactions → highly active users.
