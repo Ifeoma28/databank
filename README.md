@@ -324,7 +324,7 @@ To identify financially struggling customers, i used the declining balance trend
 I created a DAX measure that checks if a customer's closing balance has decreased for 3 or more consecutive months.  
 
 I created another metric to calculate active customers (customers that have made more than 7 transactions)
-![highly active customers]
+
 
 ### KEY INSIGHTS
 
@@ -342,5 +342,6 @@ The median time to reallocate in Australia (206 days) vs. Europe (166 days) is v
 361 customers made more than 7 transactions → highly active users.
 
 - Australia & America having more active customers → Could indicate stronger engagement with digital banking.
+![Active customers](
 
 - 460 customers have had a declining balance for the past three months.
