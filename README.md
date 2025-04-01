@@ -332,8 +332,9 @@ I created another metric to calculate active customers (customers that have made
 The median time to reallocate in Australia (206 days) vs. Europe (166 days) is valuable.
 
 - The fact that Europeans change nodes more frequently could suggest higher dissatisfaction or more flexible digital banking habits.
-- Financial Stability Trends
-A lot of customers had negative balances by the end of February till April.
+
+- Nonthly Trends: A lot of customers had negative balances by the end of February till April.
+![monthly closing balance]
 
 - Africa having the lowest average closing balance aligns with financial struggles observed earlier.
   
