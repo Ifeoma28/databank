@@ -321,5 +321,14 @@ Let us look at the deposit rate, withdrawal and purchase rate in these regions
 To identify financially struggling customers, i used the declining balance trend.
 I created a DAX measure that checks if a customer's closing balance has decreased for 3 or more consecutive months.  
 
-I created another metric to calculate active customers (customers that have made more than 5 transactions)
-![highly active customers](https://github.com/Ifeoma28/databank/blob/16d4533df96cf00101ecb6b4407ca505eb096850/Active%20customers%20by%20region.png)
+I created another metric to calculate active customers (customers that have made more than 7 transactions)
+![highly active customers]
+
+### KEY INSIGHTS
+- It takes 50% of customers in Australia less than 206 days to reallocate to another node.
+- While in Europe, it takes 50% of customers less than 166 days to reallocate to another node.
+- More customers tend to change nodes frequently in Europe compared to other regions
+- By the end of February, a lot of customers balances were in red.
+- We have more active customers in Australia and America 
+- Africa has the lowest average closing balance for all its customers.
+
