@@ -1,6 +1,6 @@
 
 # DATABANK
-![Dashboard](https://github.com/Ifeoma28/databank/blob/24e47c797ca5cff647867b3c32513a62996bf907/Neo%20bank.png)
+
 
 ## PROJECT OVERVIEW
 There is a new innovation in the financial industry called Neo-Banks: new aged digital only banks without physical branches like Kudabank.
