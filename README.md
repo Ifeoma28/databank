@@ -103,7 +103,7 @@ SELECT COUNT(DISTINCT node_id) AS no_of_nodes
   SELECT region_name,max_rn,max_rn/2 AS median,max_rn*0.80 AS eighty_percentile,max_rn*0.95 AS ninety_five_percentile
   FROM MAX_ROW;
 ```
-![median reallocation](https://github.com/Ifeoma28/databank/blob/657bdaf747a3c3e2e4ec054bac9231dcd3b07a18/relationship%20databank.png)
+![median reallocation](https://github.com/Ifeoma28/databank/blob/e286cf644f7d404f0f97b73558292fc5ec99db46/median%20information.png)
 ### Customer transactions
 - The unique count and total amount for each transaction type?
 ```
