@@ -9,7 +9,9 @@ Danny thought that there should be some sort of intersection between these new a
 
 Data Bank runs just like any other digital bank - but it isn’t only for banking activities, they also have the world’s most secure distributed data storage platform!
 
-Customers are allocated cloud data storage limits which are directly linked to how much money they have in their accounts. There are a few interesting caveats that go with this business model, and this is where I come in!
+Customers are allocated cloud data storage limits which are directly linked to how much money they have in their accounts.
+
+There are a few interesting caveats that go with this business model, and this is where I come in!
 
 
 ## PROBLEM STATEMENT
@@ -17,9 +19,13 @@ The management team at Data Bank want to increase their total customer base - bu
 
 ### ABOUT DATASET
 We have three tables; customer nodes, customer transactions and regions table.
-Just like popular cryptocurrency platforms - Data Bank is also run off a network of nodes where both money and data is stored across the globe. In a traditional banking sense - you can think of these nodes as bank branches or stores that exist around the world. The customer nodes table contain the customer ID, region ID,nodes ID,start_date and end_date.
+Just like popular cryptocurrency platforms - Data Bank is also run off a network of nodes where both money and data is stored across the globe. 
 
-Customers are randomly distributed across the nodes according to their region - this also specifies exactly which node contains both their cash and data. This random distribution changes frequently to reduce the risk of hackers getting into Data Bank’s system and stealing customer’s money and data.
+In a traditional banking sense - you can think of these nodes as bank branches or stores that exist around the world. The customer nodes table contain the customer ID, region ID,nodes ID,start_date and end_date.
+
+Customers are randomly distributed across the nodes according to their region - this also specifies exactly which node contains both their cash and data. 
+This random distribution changes frequently to reduce the risk of hackers getting into Data Bank’s system and stealing customer’s money and data.
+
 ![database relationship](https://github.com/Ifeoma28/databank/blob/657bdaf747a3c3e2e4ec054bac9231dcd3b07a18/relationship%20databank.png)
 The regions table contains the region_id and their respective region_name values. The customer transactions  table stores all customer deposits, withdrawals and purchases made using their Data Bank debit card.
 
