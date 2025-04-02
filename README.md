@@ -341,6 +341,7 @@ The median time to reallocate in Australia is 206 days while in Europe is 166 da
 ![monthly closing balance](https://github.com/Ifeoma28/databank/blob/5c7f885701e01e42aef72b72353f9ba8ad2a1b87/closing%20balance%20monthly.png)
 
 - Africa having the lowest average closing balance followed by Australia aligns with financial struggles observed earlier.
+![average closing balance](https://github.com/Ifeoma28/databank/blob/db675b5554ca8b6110d040c6e493add1d77d7aa0/Average%20closing%20balance.png)
   
 - Activity & Transaction Behavior:
 361 customers made more than 7 transactions → highly active users.
