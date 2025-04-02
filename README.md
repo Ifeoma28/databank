@@ -298,6 +298,11 @@ FROM monthly;
 -- we can see some customers wont be allocated cloud storage because they are in debt (-)
 
 ```
+
+However, this will cause issues like:
+- Customers with high deposits but extreme withdrawals still got high storage.
+- Some financially struggling but consistent depositors received little or no allocation.
+
 ## ANALYSIS
 Let's look at the average closing balance by Region.
 ![average closing balance](https://github.com/Ifeoma28/databank/blob/f7377134bc15b0c2417242df6e50cdb26fc5c6b1/Average%20closing%20balance.png)
