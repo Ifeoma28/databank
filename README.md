@@ -353,5 +353,6 @@ The median time to reallocate in Australia is 206 days while in Europe is 166 da
 
 ## RECOMMENDATION 
 - For data allocation, I will be allocating 35% data storage to the busiest regions, 20% to active customers with positive balances.
-- 30% percent to regions with high average balance and 10% to active customers with high closing balance. 
-And lastly 5% for financially struggling regions with consistent deposit.
+- 30% percent to regions with high median closing balance. This reduces the impact of extreme spenders - Some regions (like Australia) have high deposit rates but also extreme spenders. 
+- 10% to active customers with high closing balance. 
+- 5% for financially struggling regions with consistent deposit.
