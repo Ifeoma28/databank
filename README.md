@@ -352,7 +352,15 @@ The median time to reallocate in Australia is 206 days while in Europe is 166 da
 - 460 customers have had a declining balance for the past three months.
 
 ## RECOMMENDATION 
-- For data allocation, I will be allocating 35% data storage to the busiest regions, 20% to active customers with positive balances.
-- 30% percent to regions with high median closing balance. This reduces the impact of extreme spenders - Some regions (like Australia) have high deposit rates but also extreme spenders. 
-- 10% to active customers with high closing balance. 
-- 5% for financially struggling regions with consistent deposit.
+- For data allocation, Long-term customers with a history of steady deposits should get a 15% priority access to storage.
+  
+-  I think allocating 20% data storage to the busiest regions will ensure high traffic regions get adequate storage and 20% to active customers with positive balances.
+  
+- 30% percent to regions with high median closing balance. This reduces the impact of extreme spenders - Some regions (like Australia) have high deposit rates but also extreme spenders.
+
+- 10% to active customers with high closing balance and 5% for financially struggling regions with consistent deposit.
+
+- Introducing a Hybrid Model for Struggling Customers: Instead of fixed storage, give struggling customers an "on-demand storage"—they receive a base amount, and if they maintain positive balance growth for 3 months, they unlock more.
+  
+- If spending is highest in April, consider temporarily increasing allocation for active customers and busiest regions during peak months.
+  
