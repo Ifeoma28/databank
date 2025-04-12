@@ -303,6 +303,15 @@ However, this will cause issues like:
 - Customers with high deposits but extreme withdrawals still got high storage.
 - Some financially struggling but consistent depositors received little or no allocation.
 
+```
+ SELECT TOP 20 customer_id,node_id,SUM(DATEDIFF(DAY,start_date,end_date)) AS no_of_days,SUM(DATEDIFF(MONTH,start_date,end_date)) AS month_count
+  FROM customer_nodes
+  GROUP BY customer_id,node_id
+  ORDER BY 3 DESC;
+  -- this shows the number of months and days customers spend in each node.
+  -- the top 20 shows the longest customers in each node.
+```
+
 ## ANALYSIS
 Let's look at the average closing balance by Region.
 ![average closing balance](https://github.com/Ifeoma28/databank/blob/f7377134bc15b0c2417242df6e50cdb26fc5c6b1/Average%20closing%20balance.png)
@@ -357,7 +366,7 @@ The median time to reallocate in Australia is 206 days while in Europe is 166 da
 - 460 customers have had a declining balance for the past three months.
 
 ## RECOMMENDATION 
-- For data allocation, Long-term customers with a history of steady deposits should get a 15% priority access to storage.
+- For data allocation, Long-term customers (in each node) with a history of steady deposits should get a 15% priority access to storage.
   
 -  I think allocating 20% data storage to the busiest regions will ensure high traffic regions get adequate storage and 20% to active customers with positive balances.
   
